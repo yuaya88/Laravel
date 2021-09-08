@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;//追記
+use App\Models\Person;
 Route::get('/', [AuthorController::class, 'index']);
 Route::get('/find', [AuthorController::class, 'find']);
 Route::post('/find', [AuthorController::class, 'search']);
@@ -19,3 +20,6 @@ Route::prefix('book')->group(function () { //以下を追記
     Route::post('/add', [BookController::class, 'create']);
 });
 Route::get('/relation', [AuthorController::class, 'relate']);
+Route::get('/softdelete', function () {
+    Person::find(1)->delete();
+});

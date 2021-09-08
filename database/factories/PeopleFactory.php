@@ -24,7 +24,7 @@ class PeopleFactory extends Factory
         return [
             'name' => $this->faker->name,
             'age' => $this->faker->numberBetween(1, 100),
-            'nationality' => $this->faker->country   
+
         ];
     }
 }
